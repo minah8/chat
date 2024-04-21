@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+<!--    <settings>-->
+<!--        &lt;!&ndash; 카멜케이스와 스네이크케이스 자동 변환 설정 &ndash;&gt;-->
+<!--        <setting name="mapUnderscoreToCamelCase" value="true"/>-->
+
+<!--        &lt;!&ndash; 조회된 결과가 없을 시에 null을 리턴해주는 설정 &ndash;&gt;-->
+<!--        <setting name="jdbcTypeForNull" value="NULL"/>-->
+<!--    </settings>-->
+
+<!--    <typeAliases>-->
+<!--        &lt;!&ndash; 엔터티 클래스 별칭 붙이기 &ndash;&gt;-->
+<!--        &lt;!&ndash; <typeAlias type="com.spring.mvc.chap05.entity.Board" alias="board"/> &ndash;&gt;-->
+<!--        <typeAlias type="project.blog.community.project.entity.User" alias="user"/>-->
+<!--        <typeAlias type="project.blog.community.project.entity.Market" alias="market"/>-->
+<!--        <typeAlias type="project.blog.community.project.entity.Board" alias="board"/>-->
+<!--        <typeAlias type="project.blog.community.project.entity.Reply" alias="reply"/>-->
+<!--    </typeAliases>-->
+
+<!--    &lt;!&ndash; SQL을 적어놓은 XML 파일의 위치를 설정 &ndash;&gt;-->
+<!--    <mappers>-->
+<!--        &lt;!&ndash; <mapper resource="mapper/BoardMapper.xml"/> &ndash;&gt;-->
+<!--        <mapper resource="mapper/UserMapper.xml"/>-->
+<!--        <mapper resource="mapper/MarketMapper.xml"/>-->
+<!--        <mapper resource="mapper/BoardMapper.xml"/>-->
+<!--        <mapper resource="mapper/ReplyMapper.xml"/>-->
+<!--    </mappers>-->
+
+
+
+
+</configuration>
+
+
