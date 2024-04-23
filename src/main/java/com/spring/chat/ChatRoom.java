@@ -13,11 +13,12 @@ public class ChatRoom {
     private String name; // 채팅방 이름
     private Set<WebSocketSession> sessions = new HashSet<>();
 
+
     @Builder
-    public ChatRoom(String roomId, String name){
+    public ChatRoom(String roomId){
         this.roomId = roomId;
-        this.name = name;
     }
+
 
     public void handleAction(WebSocketSession session, ChatDTO message, ChatService service) {
         // message 에 담긴 타입을 확인한다.
@@ -32,7 +33,14 @@ public class ChatRoom {
             sendMessage(message, service);
         } else if (message.getType().equals(ChatDTO.MessageType.TALK)) {
             message.setMessage(message.getMessage());
-            sendMessage(message, service);
+            sendMessage(message.getMessage(), service);
+//        } else if (message.getType().equals(ChatDTO.MessageType.GETROOM)) {
+//            StringBuffer strs = new StringBuffer();
+//            for (ChatRoom chatRoom : service.findAllRoom()) {
+//                strs.append(chatRoom.getRoomId());
+//            }
+//            message.setMessage(strs.toString());
+//            sendMessage(message.getRoomId(), service);
         }
     }
 

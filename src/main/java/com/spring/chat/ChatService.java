@@ -2,6 +2,7 @@ package com.spring.chat;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 
-import javax.annotation.PostConstruct;
+//import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.util.*;
 
@@ -17,12 +18,13 @@ import java.util.*;
 @Data
 @Service
 public class ChatService {
+
     private final ObjectMapper mapper;
     private Map<String, ChatRoom> chatRooms;
 
     @PostConstruct
     private void init() {
-        chatRooms = new LinkedHashMap<>();
+            chatRooms = new LinkedHashMap<>();
     }
 
     public List<ChatRoom> findAllRoom(){
@@ -30,16 +32,20 @@ public class ChatService {
     }
 
     public ChatRoom findRoomById(String roomId){
+        //return chatRooms.get(roomId);
         return chatRooms.get(roomId);
     }
+//    public Map<String, ChatRoom> findRoomAllRoom(){
+//        //return chatRooms.get(roomId);
+//        return chatRooms;
+//    }
 
     public ChatRoom createRoom(String name) {
-        String roomId = UUID.randomUUID().toString(); // 랜덤한 방 아이디 생성
+        String roomId = "132132132132132";
 
         // Builder 를 이용해서 ChatRoom 을 Building
         ChatRoom room = ChatRoom.builder()
                 .roomId(roomId)
-                .name(name)
                 .build();
 
         chatRooms.put(roomId, room); // 랜덤 아이디와 room 정보를 Map 에 저장
