@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	//implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -53,6 +53,9 @@ dependencies {
 
 	// 웹소켓 라이브러리
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+	// 2022.10.26[프뚜]: thymeleaf
+	// implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
 
 tasks.named('test') {

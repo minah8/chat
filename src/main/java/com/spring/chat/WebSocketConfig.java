@@ -1,24 +1,22 @@
 package com.spring.chat;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.socket.WebSocketHandler;
-import org.springframework.web.socket.config.annotation.EnableWebSocket;
-import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
-import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
-@Configuration
-@EnableWebSocket
-@RequiredArgsConstructor
-public class WebSocketConfig implements WebSocketConfigurer {
+@Component
+public class WebSocketConfig {
 
-    private final WebSocketHandler webSocketHandler;
-
-    @Override
-    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        // endpoint 설정 : /api/v1/chat/{postId}
-        // 이를 통해서 ws://localhost:8080/ws/chat 으로 요청이 들어오면 websocket 통신을 진행한다.
-        // setAllowedOrigins("*")는 모든 ip에서 접속 가능하도록 해줌
-        registry.addHandler(webSocketHandler, "/ws/chat").setAllowedOrigins("*");
+    @Bean
+    public ServerEndpointExporter serverEndpointExporter() {
+        /*
+            2022.10.26[프뚜]:
+                Spring에서 Bean은 싱글톤으로 관리되지만,
+                @ServerEndpoint 클래스는 WebSocket이 생성될 때마다 인스턴스가 생성되고
+                JWA에 의해 관리되기 때문에 Spring의 @Autowired가 설정된 멤버들이 초기화 되지 않습니다.
+                연결해주고 초기화해주는 클래스가 필요합니다.
+         */
+        return new ServerEndpointExporter();
     }
+
 }
